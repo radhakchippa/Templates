@@ -1,0 +1,36 @@
+---- java ----
+Map<STATE, Integer> memo = new HashMap<>();
+
+public int fn(int[] arr) {
+    return dp(STATE_FOR_WHOLE_INPUT, arr);
+}
+
+public int dp(STATE, int[] arr) {
+    if (BASE_CASE) {
+        return 0;
+    }
+
+    if (memo.contains(STATE)) {
+        return memo.get(STATE);
+    }
+
+    int ans = RECURRENCE_RELATION(STATE);
+    memo.put(STATE, ans);
+    return ans;
+}
+
+---- python3 ----
+def fn(arr):
+    def dp(STATE):
+        if BASE_CASE:
+            return 0
+        
+        if STATE in memo:
+            return memo[STATE]
+        
+        ans = RECURRENCE_RELATION(STATE)
+        memo[STATE] = ans
+        return ans
+
+    memo = {}
+    return dp(STATE_FOR_WHOLE_INPUT)
