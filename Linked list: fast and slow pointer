@@ -1,0 +1,26 @@
+---- java ----
+public int fn(ListNode head) {
+    ListNode slow = head;
+    ListNode fast = head;
+    int ans = 0;
+
+    while (fast != null && fast.next != null) {
+        // do logic
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    return ans;
+}
+---- python3 ----
+def fn(head):
+    slow = head
+    fast = head
+    ans = 0
+
+    while fast and fast.next:
+        # do logic
+        slow = slow.next
+        fast = fast.next.next
+    
+    return ans
