@@ -1,0 +1,25 @@
+---- java ----
+public ListNode fn(ListNode head) {
+    ListNode curr = head;
+    ListNode prev = null;
+    while (curr != null) {
+        ListNode nextNode = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nextNode;
+    }
+
+    return prev;
+}
+
+---- python3 ----
+def fn(head):
+    curr = head
+    prev = None
+    while curr:
+        next_node = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_node 
+        
+    return prev
