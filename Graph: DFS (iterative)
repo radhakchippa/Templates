@@ -1,0 +1,37 @@
+---- java ----
+public int fn(int[][] graph) {
+    Stack<Integer> stack = new Stack<>();
+    Set<Integer> seen = new HashSet<>();
+    stack.push(START_NODE);
+    seen.add(START_NODE);
+    int ans = 0;
+
+    while (!stack.empty()) {
+        int node = stack.pop();
+        // do some logic
+        for (int neighbor: graph[node]) {
+            if (!seen.contains(neighbor)) {
+                seen.add(neighbor);
+                stack.push(neighbor);
+            }
+        }
+    }
+
+    return ans;
+}
+
+---- python3 ----
+def fn(graph):
+    stack = [START_NODE]
+    seen = {START_NODE}
+    ans = 0
+
+    while stack:
+        node = stack.pop()
+        # do some logic
+        for neighbor in graph[node]:
+            if neighbor not in seen:
+                seen.add(neighbor)
+                stack.append(neighbor)
+    
+    return ans
